@@ -38,7 +38,7 @@ def register(request):
 def login(request):
 	print("login")
 	if request.method =="POST":
-		name = request.POST.get("name")
+		name = request.POST.get("username")
 		password = request.POST.get("password")
 		print(name,password)
 		isPresent=professor.objects.filter(name=name,password=password)
@@ -47,5 +47,9 @@ def login(request):
 		else:
 			return render(request,'login.html',{"error_message": "Password/Username may be wrong"})
 	return render(request,'login.html')
+
+@csrf_exempt
+def main(request):
+	return render(request,'main.html')
 		
 
