@@ -22,4 +22,6 @@ urlpatterns = [
     path('login/',login_views.login,name='login'),
     path('register/',login_views.register,name='register'),
     path('main/',login_views.main,name='main'),
+    path('qrpage/',login_views.qrpage,name='qrpage'),
+
 ]

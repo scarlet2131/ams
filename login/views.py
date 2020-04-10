@@ -7,6 +7,10 @@ from django.views.decorators.csrf import csrf_exempt
 
 from datetime import datetime
 from django.utils import timezone
+from pyqrcode import QRCode 
+import pyqrcode 
+import datetime 
+
 
 @csrf_exempt
 def register(request):
@@ -51,5 +55,16 @@ def login(request):
 @csrf_exempt
 def main(request):
 	return render(request,'main.html')
+
+def qrpage(request):
+	file_name=""
+	course_id=request.POST.get("Course_ID")
+	t=str(datetime.datetime.now()).split(" ")[0]
+	s = "www."+course_id+t+"org"
+	url = pyqrcode.create(s)  
+	file_name="qr/"+course_id+t+".svg"
+	url.svg("login/static/"+file_name, scale = 8) 
+	return render(request,'qrpage.html',{"qrCode": file_name})
+	
 		
 
