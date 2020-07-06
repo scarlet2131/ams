@@ -21,7 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/',login_views.login,name='login'),
     path('register/',login_views.register,name='register'),
+    path('course/',login_views.course,name='course'),
     path('main/',login_views.main,name='main'),
-    path('qrpage/',login_views.qrpage,name='qrpage'),
-
 ]

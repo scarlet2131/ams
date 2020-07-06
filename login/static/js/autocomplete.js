@@ -1,4 +1,4 @@
-var courses = ["CS101","CS303","Software Engineering","Computer Security","Optimisation Techniques","Physics II","Operating System","DBMS","C-Programming","Data Structures","Machine Learning","Artificial Intelligence"];
+var courses = ["Computer Organisation","Compilers","Software Engineering","Computer Security","Optimisation Techniques","Physics II","Operating System","DBMS","C-Programming","Data Structures","Machine Learning","Artificial Intelligence"];
 
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
@@ -96,3 +96,4 @@ function autocomplete(inp, arr) {
       closeAllLists(e.target);
   });
   } 
+

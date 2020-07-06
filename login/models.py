@@ -14,6 +14,6 @@ class professor(models.Model):
     password = models.TextField(max_length=254,blank=False)
     email = models.EmailField(max_length=254,blank=False)
     created_on = models.DateTimeField(auto_now_add=True)
-    
 	
+
 

@@ -32,9 +32,16 @@
     <link rel="stylesheet" href="css/style.css"/>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     
+    <style>
+        #notification{
+            background-color: lightgreen;
+            border:1px black;
+            background-size: 50%;
+        }
+    </style>
 
 </head>
 <body>
@@ -46,17 +53,18 @@
 <div class="container-fluid" style="position: absolute;top:30%;left:35%;width:30%;">
 
     
-        
-            <div class="panel panel-default">
-                <div id="notification">
-
-                    {% if error_message %}
-                        <p><strong><font color='red'>{{ error_message }}</font></strong></p>
-                    {% endif %}
-                    {% if register %}
-                        <p><strong><font color='green'>{{ register }}</font></strong></p>
-                    {% endif %}
+            <div id="notification">
+                <div id='notificationRed' style='background-color: #ffcccb;'>
+                {% if error_message %}
+                    <p><strong><font color='red'>{{ error_message }}</font></strong></p>
+                {% endif %}
                 </div>
+                {% if register %}
+                    <p><strong><font color='green'>{{ register }}</font></strong></p>
+                {% endif %}
+            </div>
+            <div class="panel panel-default">
+                
                 <h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspLog In</h3>
                 <center>
                 <div class="panel-body">
@@ -92,7 +100,7 @@
                 </div>
 
                 <div class="panel-footer">
-                    Don't have an account? <a href="http://localhost:8000/register/">Click here</a> to register.
+                    Don't have an account? <a href="{% url 'register'%}">Click here</a> to register.
                 </div>
                 
             </div>
