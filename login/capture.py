@@ -1,9 +1,23 @@
 from os import walk
+from PIL import Image
+import requests
+from io import BytesIO
+
 class capture:
     
     def __init__(self):
         self.knownPath = 'login/static/faces'
-        
+        self.images = [
+            'https://firebasestorage.googleapis.com/v0/b/numbergame-8d811.appspot.com/o/Akansha_Singh_1701003.jpg?alt=media&token=ab43f7b9-7d98-45a6-9505-c0422ae38513',
+            'https://firebasestorage.googleapis.com/v0/b/numbergame-8d811.appspot.com/o/Anivrat_Goel_1701000.jpg?alt=media&token=69d33273-efca-4e42-a69c-e4e5c0a0fa48',
+            'https://firebasestorage.googleapis.com/v0/b/numbergame-8d811.appspot.com/o/Monisha_Ranjan_1701037.jpg?alt=media&token=8c116208-5b43-48f5-8f46-543cb46757e3',
+            'https://firebasestorage.googleapis.com/v0/b/numbergame-8d811.appspot.com/o/Sahil_Kalamkar_1701070.jpg?alt=media&token=ec332f10-54f5-4308-b1d9-c4e5c074b133',
+            'https://firebasestorage.googleapis.com/v0/b/numbergame-8d811.appspot.com/o/Praveen_Kumar_1601041.jpg?alt=media&token=297a542e-5c46-4371-b2d7-19c03dcdf9ea'
+        ]
+        self.names = [
+            'Akansha_Singh_1701003','Anivrat_Goel_1701000','Monisha_Ranjan_1701037','Sahil_Kalamkar_1701070','Praveen_Kumar_1601041'
+        ]
+
     def getKnownFiles(self):
         f = []
         for (dirpath, dirnames, filenames) in walk(self.knownPath):
@@ -19,22 +33,24 @@ class capture:
         import face_recognition
         import cv2
         import numpy as np
-        f = self.getKnownFiles()
+        f = self.images
         # print("KnownImages",f)
         video_capture = cv2.VideoCapture(0)
 
         # Create arrays of known face encodings and their names
         known_face_encodings =[]
-        known_face_names = []
+        known_face_names = self.names
 
         # get the Known Face Encodings
-        for img in f:
-            name = img.split('.')[0]
+        for url in f:
+            response = requests.get(url)
+            print(response)
+            img = BytesIO(response.content)
             print(img)
             face = face_recognition.load_image_file(img)
             faceEnc = face_recognition.face_encodings(face)[0]
             known_face_encodings.append(faceEnc)
-            known_face_names.append(name.split("/")[-1])
+            
 
         # Initialize some variables
         face_locations = []
@@ -85,7 +101,7 @@ class capture:
 
                 face_names.append(name)
 
-        print(face_names)
+        
         retVal = "Unknown"
         for name in face_names:
             if name!="Unknown":
