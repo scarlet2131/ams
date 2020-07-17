@@ -25,7 +25,7 @@ SECRET_KEY = 'qs)^i4!92q5bpe)%xkgt&-w^ar)+nn@&etp)7*9drguw4m3dhv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = ['ams12345.herokuapp.com','localhost']
 
 
 # Application definition
@@ -37,7 +37,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'login'
+    'django.contrib.sites', 
+    'login',
+
+
+
+    #allAuth
+    'allauth',  
+    'allauth.account',   
+    'allauth.socialaccount',  
+
+    #providers 
+    'allauth.socialaccount.providers.google'  
+
 ]
 
 MIDDLEWARE = [
@@ -114,5 +126,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "../login/static")
+STATIC_URL = '/login/static/'
+STATIC_ROOT = '/login/static/'
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, "/login/static"),]
+SITE_ID = 1
+LOGIN_REDIRECT_URL = "/course"
+LOGOUT_REDIRECT_URL = '/'
+

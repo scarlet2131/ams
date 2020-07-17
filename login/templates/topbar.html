@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand bg-dark navbar-inverse justify-content-end">
+  <a class="navbar-brand" style="font-size: 20px;"
+    ><b>Attendance Management<br />System</b></a
+  >
+  <div style="float: right;">
+    {% if user.socialaccount_set.all.0.get_avatar_url %}
+    <img
+      class="ml-auto mr-1"
+      style="
+        border-radius: 50%;
+        border: 2px white solid;
+        position: relative;
+        right: 20px;
+        bottom: 10px;
+      "
+      src="{{ user.socialaccount_set.all.0.get_avatar_url }}"
+      width="60px"
+    />
+   
+    {% endif %}
+    <span
+      class="navbar-nav ml-auto mr-1"
+      style="
+        margin-right: 10px;
+        font-size: 15px;
+        position: relative;
+        right: 20px;
+      "
+      ><b>{{ user.socialaccount_set.all.0.extra_data.name }}</b></span
+    >
+    <a
+      class="glyphicon glyphicon-off"
+      style="color: red; font-size: 30px; margin-top: 15px;"
+      href="{% url 'logout' %}"
+    ></a>
+  </div>
+</nav>

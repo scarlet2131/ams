@@ -1,4 +1,4 @@
-var courses = ["Computer Organisation","Compilers","Software Engineering","Computer Security","Optimisation Techniques","Physics II","Operating System","DBMS","C-Programming","Data Structures","Machine Learning","Artificial Intelligence"];
+var courses = ["CS-Computer Organisation","CS-Compilers","CS-Software Engineering","CS-Computer Security","MA-Optimisation Techniques","SC-Physics II","CS-Operating System","CS-DBMS","CS-C-Programming","CS-Data Structures","CS-Machine Learning","CS-Artificial Intelligence","HS-Film Studies"];
 
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,

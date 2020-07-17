@@ -1,6 +1,6 @@
 
 import time
-import pyqrcode 
+import pyqrcode
 import datetime
 from pyqrcode import QRCode
 import os
@@ -17,7 +17,7 @@ class qrCode:
     def genQR(self):
         uniqueId = self.genUniqueId()
         # Generate QR code 
-        url = pyqrcode.create("https://medium.com/@ngengesenior/qr-codes-generation-with-python-377735be6c5f") 
+        url = pyqrcode.create("http://ams12345.herokuapp.com/imageRec/") 
         # Create and save the png file naming "myqr.png" 
         path = 'login/static/QR'
         fileName = self.obj + '_' + self.t +'.svg'

@@ -79,12 +79,31 @@
             background-color: DodgerBlue !important; 
             color: #ffffff; 
             }
+              #bg{
+
+            background-size: 1800px 800px;
+            background-repeat: no-repeat;
+            background-position: top;
+            background-attachment: fixed;
+        }
 
         </style>
+
     
     </head>
     <body>
-        <div class="container-fluid" style="position: absolute;top:30%;left:35%;width:40%;">
+        <body id="bg" style="background-image: url('{% static 'images/kk.jpeg'%}')";>
+
+ {% include "topbar.html" %}
+       
+        
+        <section class="container">
+            <div class="container-fluid" style="position: absolute;top:20%;right:60%;width:40%;"><img class="rounded-circle" src="{% static "images/im.jpeg" %}" width="200" height="200" padding="10px"></div>
+            <div class="container-fluid" style="position: absolute;top:60%;right:45%;width:40%;"><img class="rounded-circle" src="{% static "images/kt.jpeg" %}" width="200" height="200" padding="10px"></div>
+             <div class="container-fluid" style="position: absolute;top:20%;right:30%;width:40%;"><img class="rounded-circle" src="{% static "images/kk.png" %}" width="200" height="200" padding="10px"></div>
+        
+
+        <div class="container-fluid" style="position: absolute;top:30%;left:54%;width:40%;" >
 
     
             <div id="notification">
@@ -98,30 +117,31 @@
                 {% endif %}
             </div>
             <div class="panel panel-default">
-                
-                <h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSelect Course</h3>
                 <center>
+                    <br><br>
+                <h3>Select Course</h3>
+               
                 <div class="panel-body">  
                     <form autocomplete="off"  class="form-horizontal" id="courseForm" role="form"  action="{% url 'main'%}" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form.as_p }}
                         <div class="form-group">
-                            <div class="col-sm-10">
+                            <div class="col-sm-20">
                                 <span class="glyphicon glyphicon-user">
                                     <input id="course" maxlength="50" size='35%' name="course" type="text" placeholder="Enter Course Name/Code"  style="font-family: Courier New;font-size: 15px;border: none; border-bottom: 2px solid black;">
                                     </span>
                             </div>
                         </div>
+                        <br><br>
                         <div class="form-group">
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="submit" class="btn btn-success" style="font-size: 15px;">Submit</button>
                         </div>
                     </form>
                 </div>
                 </center>
             </div>
         </div>
-        
+        </section>
     </body>
     <script>  autocomplete(document.getElementById("course"), courses); </script>
 </html>

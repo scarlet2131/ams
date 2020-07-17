@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <title>Your Image</title>
+
+    <meta charset="UTF-8" />
+    <meta name="description" content="HALO photography portfolio template" />
+    <meta
+      name="keywords"
+      content="photography, portfolio, onepage, creative, html"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {% load static %}
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Satisfy"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'esop/style.css' %}"/> -->
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="shortcut icon" />
+
+    <!-- Google Fonts -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"
+    />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      {% if yourName == "Unknown" %}
+      <h3>
+        <strong
+          ><font color="red"
+            ><h3>SORRY,</h3>
+            <br />Unable to RECOGNIZE</font
+          ></strong
+        >
+      </h3>
+      {% else %}
+      <h3>
+        <strong
+          ><font color="green"
+            ><h3>SUCCESS,</h3>
+            <br />RECOGNIZED<br />{{yourName}}<br />
+            PRESENT</font
+          ></strong
+        >
+      </h3>
+      {% endif %}
+
+      <!-- <img src="{{yourImage}}" class="img-responsive" width="20%" /> -->
+      You can now go back!
+    </div>
+  </body>
+</html>
