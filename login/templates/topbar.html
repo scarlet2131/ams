@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand bg-dark navbar-inverse justify-content-end">
   <a class="navbar-brand" style="font-size: 20px;"
-    ><b>Attendance Management<br />System</b></a
+    ><b>Attendance Management System</b></a
   >
   <div style="float: right;">
     {% if user.socialaccount_set.all.0.get_avatar_url %}
@@ -21,10 +21,12 @@
     <span
       class="navbar-nav ml-auto mr-1"
       style="
+        top: 15px;
         margin-right: 10px;
         font-size: 15px;
         position: relative;
         right: 20px;
+        color:white ;
       "
       ><b>{{ user.socialaccount_set.all.0.extra_data.name }}</b></span
     >

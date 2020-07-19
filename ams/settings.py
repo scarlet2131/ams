@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites', 
+    'django.contrib.sites',
+     
     'login',
 
 
@@ -48,7 +49,11 @@ INSTALLED_APPS = [
     'allauth.socialaccount',  
 
     #providers 
-    'allauth.socialaccount.providers.google'  
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook' ,
+    'allauth.socialaccount.providers.github',
+     'allauth.socialaccount.providers.linkedin',
+
 
 ]
 
@@ -127,9 +132,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/login/static/'
-STATIC_ROOT = '/login/static/'
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, "/login/static"),]
+STATIC_ROOT = os.path.join(BASE_DIR, "../login/static")
+
+AUTHENTICATION_BACKENDS = (
+ 'django.contrib.auth.backends.ModelBackend',
+ 'allauth.account.auth_backends.AuthenticationBackend',
+ )
+
+
 SITE_ID = 1
-LOGIN_REDIRECT_URL = "/course"
+LOGIN_REDIRECT_URL = '/course'
 LOGOUT_REDIRECT_URL = '/'
 

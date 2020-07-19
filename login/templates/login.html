@@ -1,5 +1,6 @@
 
 {% load socialaccount %}
+{% providers_media_js %}
 
 <html>
 <head>
@@ -60,7 +61,7 @@
 <!-- /*<div class="view" style="background-image: url('{% static "images/IIIT.jpg" %}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">*/ -->
 
 
-<div class="container-fluid" style="position: absolute;top:30%;left:35%;width:35%;">
+<div class="container-fluid" style="position: absolute;top:30%;left:28%;width:35%;">
 
     
             <div id="notification">
@@ -73,7 +74,7 @@
                     <p><strong><font color='green'>{{ register }}</font></strong></p>
                 {% endif %}
             </div>
-            <div class="panel panel-default">
+            <div class="panel panel-default  " style="width:120%; ">
                 
                 
                 <center>
@@ -84,7 +85,7 @@
                 
                     
                         <span class="login100-form-title p-b-49" style="font-size: 25px;"><strong>Login</strong>
-                        <div class="panel-footer" style="font-size: 15px;">
+                       
 
                         
                     </span>
@@ -92,16 +93,23 @@
                        
                   
                 <center>
-                <a href="{% provider_login_url 'google' %}">
 
-                <div class="col s12 m6 offset-m4 center-align">
-                <a class="oauth-container btn darken-4 white black-text"  href="{% provider_login_url "google" %}"  style="text-transform:none;width: 200px;height: 120px;">
+                <div class="col s12 m6 offset-m4 center-align ">
+                <a class="oauth-container btn darken-4 white black-text col-2"  href="{% provider_login_url "google" %}"  style="text-transform:none;width: 100px;height: 120px; float:'left' ">
                    
-                        <img width="100px" style="margin-top:7px; margin-right:8px" alt="Google sign-in" 
+                        <img width="80%" style="margin-top:30px; margin-right:8px" alt="Google sign-in" 
                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1024px-Google_%22G%22_Logo.svg.png" />
                     
                        
                 </a>
+                <a class="col-2" href="{% provider_login_url "facebook"  method="oauth2" %}"> <img width="15%" style="margin-top:7px; margin-right:8px; display:'inline' " alt="Google sign-in" 
+                            src="{% static "images/facebook.png"%}" />
+                        </a>
+
+                 <a class="col-2" href="{% provider_login_url "github"  method="oauth2" %}"> <img width="25%" style="margin-top:7px; margin-right:8px; display:'inline'" alt="Google sign-in" 
+                            src="{% static "images/github.png"%}" />
+                        </a>
+               
             </div>
 
 
@@ -113,6 +121,10 @@
                 </div>
                 
             </div>
+
+
+
+      
         
     
 
