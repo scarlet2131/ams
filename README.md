@@ -36,5 +36,9 @@ Following are the steps,
 
 ## Features
 User Friendly, Secured
-Easiest Login,Logout,Data Update
+One tap Login,Logout,Data Update
 Hassle Free Attendance within minutes
+
+
+## Highlights
+
