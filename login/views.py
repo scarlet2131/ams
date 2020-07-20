@@ -30,11 +30,25 @@ def register(request):
 			return render(request,'register.html',{"error_message":"Some Fields may be empty"} )
 		print(name,password,email)
 		isPresent = professor.objects.filter(name=name,email=email)
-		if not isPresent :
-			userInstance.name = name
-			userInstance.password = password
-			userInstance.email = email
-			userInstance.save()
+
+		loc = firebase.FirebaseApplication('https://amsproject-fe165.firebaseio.com/', None)
+		dbLOC = '/Users/'
+		result = loc.get(dbLOC, '')
+		print(result)
+		# check if the student has already marked Attendance
+		already = False
+		if result is not None :
+			for p in result:
+				if result[p]['email'] == email:
+					already = True
+					break
+		if not already:
+			data = {
+				"name":name,
+				"email":email,
+				"password":password,
+			}
+			result = loc.post(dbLOC,data)
 			return render(request,'register.html',{"register":"Successfully Registered Professor: "+name} )
 		else:
 			return render(request,'register.html',{"error_message":"Professor: {} already present.".format(name)} )
@@ -50,7 +64,48 @@ def login(request):
 		password = request.POST.get("password")
 		print(name,password)
 		isPresent = professor.objects.filter(name=name,password=password)
-		if isPresent:
+
+
+		loc = firebase.FirebaseApplication('https://amsproject-fe165.firebaseio.com/', None)
+		dbLOC = '/Users/'
+		result = loc.get(dbLOC, '')
+		print(result)
+		# check if the student has already marked Attendance
+		already = False
+		if result is not None :
+			for p in result:
+				if result[p]['email'] == email:
+					already = True
+					break
+		if already:
+			return HttpResponseRedirect('/course')
+		else:
+			return render(request,'login.html',{"error_message":"Password/Username may be Wrong"} )
+	return render(request,'login.html')
+
+@csrf_exempt
+def Form(request):
+
+	print("login")
+	if request.method=='POST':
+		email = request.POST.get("username")
+		password = request.POST.get("password")
+
+		
+
+
+		loc = firebase.FirebaseApplication('https://amsproject-fe165.firebaseio.com/', None)
+		dbLOC = '/Users/'
+		result = loc.get(dbLOC, '')
+		print(result)
+		# check if the student has already marked Attendance
+		already = False
+		if result is not None :
+			for p in result:
+				if result[p]['email'] == email:
+					already = True
+					break
+		if already:
 			return HttpResponseRedirect('/course')
 		else:
 			return render(request,'login.html',{"error_message":"Password/Username may be Wrong"} )

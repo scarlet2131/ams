@@ -17,7 +17,7 @@ class qrCode:
     def genQR(self):
         uniqueId = self.genUniqueId()
         # Generate QR code 
-        url = pyqrcode.create("http://ams12345.herokuapp.com/imageRec/") 
+        url = pyqrcode.create("http://3ed72be2cdc7.ngrok.io/imageRec/") 
         # Create and save the png file naming "myqr.png" 
         path = 'login/static/QR'
         fileName = self.obj + '_' + self.t +'.svg'
