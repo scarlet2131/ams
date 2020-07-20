@@ -36,9 +36,21 @@ Following are the steps,
 
 ## Features
 User Friendly, Secured
-One tap Login,Logout,Data Update
+One tap Login,Logout,Data Update,auto complete search(for easier search),
 Hassle Free Attendance within minutes
 
 
 ## Highlights
+Following are the steps in our Application.<br>
+<ol>
+  <li><b>Login Screen</b><br><img  width="50%" src="https://github.com/scarlet2131/ams/blob/master/AMS_ReadMe_Images/AMS_1.png"></li>
+  <li><b>Course Page</b><br><img  width="50%" src="https://github.com/scarlet2131/ams/blob/master/AMS_ReadMe_Images/AMS_2.png"></li>
+  <li><br><img  width="50%" src="https://github.com/scarlet2131/ams/blob/master/AMS_ReadMe_Images/AMS_3.png"></li>
+  <li><b>Attendance Page</b><br><img  width="50%" src="https://github.com/scarlet2131/ams/blob/master/AMS_ReadMe_Images/AMS_4.png"></li>
+  <li><b>Image Recognition</b><br><img  width="50%" src="https://github.com/scarlet2131/ams/blob/master/AMS_ReadMe_Images/AMS_5.png"></li>
+  <li><b>Recognized ones has been marked</b><br><img  width="50%" src="https://github.com/scarlet2131/ams/blob/master/AMS_ReadMe_Images/AMS_6.png"></li>
+  <li><b>Attendance time Up</b><br><img  width="50%" src="https://github.com/scarlet2131/ams/blob/master/AMS_ReadMe_Images/AMS_7.png"></li>
+  <li><b>Final Attendance List</b><br><img  width="50%" src="https://github.com/scarlet2131/ams/blob/master/AMS_ReadMe_Images/AMS_8.png"></li>
+</ol>
+  
 
