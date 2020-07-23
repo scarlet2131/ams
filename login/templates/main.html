@@ -80,6 +80,23 @@
         }
     </style>
   </head>
+  <!-- <script type="text/javascript">
+  var locationc=false;
+  function getLocation() {
+    if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(showPosition);}}
+  function showPosition(position) {
+    if(position.coords.latitude>='29'&&position.coords.latitude<='28'&&position.coords.longitude>='77'&&position.coords.longitude<='78'){
+       alert("Location not okay");
+    } else{
+      alert("Location okay");
+      locationc=true;
+     
+    }
+}
+
+  </script>
+  <body onload="getLocation()"> -->
   <body>
 
 
@@ -179,6 +196,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
   <script>
+
+
+     // console.log(locationc);
+  // if(locationc==true)
+  // {
     window.CSRF_TOKEN = "{{ csrf_token }}";
 
     $(document).ready(function () {
@@ -190,8 +212,13 @@
       { name: "Anivrat Goel", roll: "1601009", status: "A" },
       { name: "Monisha Ranjan", roll: "1701037", status: "A" },
       { name: "Akansha Singh", roll: "1701003", status: "A" },
-      { name: "Sahil Kalamkar", roll: "1700000", status: "A" },
+      { name: "Sahil Kalamkar", roll: "1700057", status: "A" },
       { name: "Sushant Singh", roll: "1701069", status: "A" },
+      { name: "Arjita Jaiswal", roll: "1701012", status: "A" },
+      { name: "Amartya Dutta", roll: "1701005", status: "A" },
+      { name: "Yashasvi Goel", roll: "1701078", status: "A" },
+      { name: "Sai Shishir", roll: "1701002", status: "A" },
+      { name: "Sahil Jaiswal", roll: "1701058", status: "A" },
     ];
     let marked = [];
     show(testName);
@@ -323,7 +350,7 @@
       reAdjustTables();
     }
 
-    var date = 10;
+    var date = 600;
     var t;
     function currentTime() {
       var hour = 0;

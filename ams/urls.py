@@ -38,7 +38,10 @@ urlpatterns = [
 
     #ajax call
     path('main/pingDB/',login_views.pingDB,name='pingDB'),
-    path('main/closeAttendance/',login_views.closeAttendance,name='closeAttendance')
+    path('main/closeAttendance/',login_views.closeAttendance,name='closeAttendance'),
+
+    path('ajax/validate/username/', login_views.validate_username, name='validate_username'),
+    path('ajax/validate/email/', login_views.validate_email, name='validate_email'),
 
   
 ]

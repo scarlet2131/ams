@@ -16,6 +16,8 @@ from firebase import firebase
 import json
 from datetime import date
 
+
+
 @csrf_exempt
 def register(request):
 
@@ -211,5 +213,60 @@ def closeAttendance(request):
 	data.append({"success":True})
 	return JsonResponse(data,safe=False)
 	
+
+# ajax functions
+@csrf_exempt
+def validate_username(request):
+	# print(request)
+	username = request.POST['str']
+	print(username)
+	already = False
+	if len(username)==0:
+		already=True
+
+	loc = firebase.FirebaseApplication('https://amsproject-fe165.firebaseio.com/', None)
+	dbLOC = '/Users/'
+	Users = loc.get(dbLOC, '')
+	if Users!=None:
+		for p in Users:
+			if Users[p]['name']== username:
+				already= True
+				break
+
+	data = {
+	   'is_taken': already
+	}
+
+	return JsonResponse(data)
+
+
+
+@csrf_exempt
+def validate_email(request):
+	# print(request)
+	email = request.POST['str']
+	print(email)
+	already = False
+	if len(email)==0:
+		already= True
+	loc = firebase.FirebaseApplication('https://amsproject-fe165.firebaseio.com/', None)
+	dbLOC = '/Users/'
+	Users = loc.get(dbLOC, '')
+	if Users!=None:
+		for p in Users:
+			if Users[p]['email']== email:
+				already= True
+				break
+
+	regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
+	if not re.search(regex,email):
+		already = True   
+      
+	data = {
+	   'is_taken': already
+	}
+
+	return JsonResponse(data)
+
 
 		
